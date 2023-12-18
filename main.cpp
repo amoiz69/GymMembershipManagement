@@ -227,7 +227,7 @@ int main()
         string user_memberid, user_password;
         cout << "Please Enter your Member ID: " << endl;
         cin >> user_memberid;
-        cout << "Enter your password";
+        cout << "Enter your Password: " << endl;
         cin >> user_password;
 
         // Flag to check if a member with matching credentials is found
@@ -241,7 +241,21 @@ int main()
                 // Matching credentials found
                 memberFound = true;
                 cout << "Welcome, " << member.name << "!" << endl;
-
+                int loginuser_option;
+                cout << "Enter 1 to record Attendance\nEnter 2 to add a complaint" << endl;
+                cin >> loginuser_option;
+                switch (loginuser_option)
+                {
+                case 1:
+                    gym.RecordAttendance(member.name);
+                    break;
+                case 2:
+                    string loginuser_complaint;
+                    cout << "Add your complain here:" << endl;
+                    cin >> loginuser_complaint;
+                    gym.AddComplaints(loginuser_complaint);
+                    cout << "Complaint added successfully" << endl;
+                }
                 break;
             }
         }
